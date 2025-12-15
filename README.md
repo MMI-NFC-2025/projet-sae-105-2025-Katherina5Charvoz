@@ -3,8 +3,8 @@
 
 À compléter :
 
-- NOM :
-- PRÉNOM :
-- GROUPE :
+- NOM :CHARVOZ
+- PRÉNOM :Kathérina
+- GROUPE :B1
 - URL du site :
 - URL FIGMA :
