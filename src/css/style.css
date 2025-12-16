@@ -5,8 +5,8 @@
 @import "contact.css";
 @import "glossaire.css";
 /* layout */
-@import "header.css";
-@import "footer.css";
+@import "layout/header.css";
+@import "layout/footer.css";
 
 h1, h2, h3 {
     font-family: 'Arial Purple', sans-serif;
