@@ -20,36 +20,3 @@ button {
 nav {
     font-family: 'Arial', sans-serif;
 }
-.menu {
-    font-family: 'Arial', sans-serif;
-}
-.section__header {
-    font-family: 'Arial', sans-serif;
-}
-.section__footer {
-    font-family: 'Arial', sans-serif;
-}
-.icones_footer {
-    width: 24px;
-    height: 24px;
-    margin: 0 8px;
-}
-.menu {
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-}
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-}
