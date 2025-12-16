@@ -7,16 +7,3 @@
 /* layout */
 @import "layout/header.css";
 @import "layout/footer.css";
-
-h1, h2, h3 {
-    font-family: 'Arial Purple', sans-serif;
-}
-p, li, a {
-    font-family: 'Arial', sans-serif;
-}
-button {
-    font-family: 'Arial', sans-serif;
-}
-nav {
-    font-family: 'Arial', sans-serif;
-}
