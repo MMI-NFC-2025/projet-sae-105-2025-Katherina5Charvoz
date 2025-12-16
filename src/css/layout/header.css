@@ -1,0 +1,27 @@
+.header {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  padding: var(--space-2xl) var(--space-4xl);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header__link {
+  display: block;
+  position: relative;
+  z-index: 3;
+}
+.header__logo {
+  transition: transform 0.3s ease;
+  transform-origin: top left;
+}
+
+.header__logo--light {
+  filter: invert(1);
+}
+
+.header__logo--extend {
+  transform: scale(1.3);
+  filter: invert(1);
+}
