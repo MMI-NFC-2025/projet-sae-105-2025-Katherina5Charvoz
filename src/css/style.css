@@ -1,9 +1,55 @@
 /* src/css */
-@import url("accueil.css");
-@import url("apropos.css");
-@import url("articles.css");
-@import url("contact.css");
-@import url("glossaire.css");
+@import "accueil.css";
+@import "apropos.css";
+@import "articles.css";
+@import "contact.css";
+@import "glossaire.css";
 /* layout */
-@import url("header.css");
-@import url("footer.css");
+@import "header.css";
+@import "footer.css";
+
+h1, h2, h3 {
+    font-family: 'Arial Purple', sans-serif;
+}
+p, li, a {
+    font-family: 'Arial', sans-serif;
+}
+button {
+    font-family: 'Arial', sans-serif;
+}
+nav {
+    font-family: 'Arial', sans-serif;
+}
+.menu {
+    font-family: 'Arial', sans-serif;
+}
+.section__header {
+    font-family: 'Arial', sans-serif;
+}
+.section__footer {
+    font-family: 'Arial', sans-serif;
+}
+.icones_footer {
+    width: 24px;
+    height: 24px;
+    margin: 0 8px;
+}
+.menu {
+    background-color: #ffffff;
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 250px;
+    height: 100%;
+    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    z-index: 1000;
+}
+.menu ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    flex-grow: 1;
+}
