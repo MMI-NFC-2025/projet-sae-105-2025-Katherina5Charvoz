@@ -1,9 +1,9 @@
 /* src/css */
-@import url(accueil.css);
-@import url(apropos.css);
-@import url(articles.css);
-@import url(contact.css);
-@import url(glossaire.css);
+@import url("accueil.css");
+@import url("apropos.css");
+@import url("articles.css");
+@import url("contact.css");
+@import url("glossaire.css");
 /* layout */
-@import url(header.css);
-@import url(footer.css);
+@import url("header.css");
+@import url("footer.css");
