@@ -5,14 +5,16 @@ body {
     background-color: #f4f4f4;
 }
 h1, h2, h3 {
-    font-family: 'Arial Purple', sans-serif;
+    font-family: 'Arial Purple';
+    font-weight: bold;
+    color: #59168B
 }
 p, li, a {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial';
 }
 button {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial';
 }
 nav {
-    font-family: 'Arial', sans-serif;
+    font-family: 'Arial';
 }
