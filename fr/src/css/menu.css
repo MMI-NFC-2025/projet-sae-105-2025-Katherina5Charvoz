@@ -6,15 +6,26 @@
 */
 
 /* Basic reset */
-* { box-sizing: border-box; margin: 0; padding: 0; }
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
 
-body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f4; }
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background-color: #f4f4f4;
+}
 
 /* ===== Checkbox burger (if using input#menuBurger + label) ===== */
-input#menuBurger { display: none; }
+input#menuBurger {
+  display: none;
+}
 
 /* Content area that may shift when side menu opens */
-.content { transition: margin-right .3s ease; }
+.content {
+  transition: margin-right .3s ease;
+}
 
 /* ===== Side menu (nav#navMenu) ===== */
 nav#navMenu {
@@ -23,8 +34,9 @@ nav#navMenu {
   right: 0;
   width: 250px;
   height: 100vh;
-  background: hsl(102 100% 36%);
-  color: #fff;
+  /* prefer site variables if available, otherwise fall back to neutral colors */
+  background: var(--dark, #333);
+  color: var(--light, #fff);
   transform: translateX(100%);
   opacity: 0;
   transition: transform .25s ease, opacity .25s ease;
@@ -44,16 +56,24 @@ nav#navMenu ul {
 
 nav#navMenu ul li {
   text-transform: uppercase;
-  padding: 14px 16px;
-  border-bottom: 1px solid rgba(0,0,0,0.08);
+  padding: 12px 14px;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
   display: flex;
   justify-content: center;
   align-items: center;
+  font-weight: 600;
+  letter-spacing: 0.02em;
 }
 
 /* Slide-in when checkbox is checked */
-input#menuBurger:checked ~ nav#navMenu { transform: translateX(0); opacity: 1; }
-input#menuBurger:checked ~ .content { margin-right: 250px; }
+input#menuBurger:checked~nav#navMenu {
+  transform: translateX(0);
+  opacity: 1;
+}
+
+input#menuBurger:checked~.content {
+  margin-right: 250px;
+}
 
 /* Burger label/button position */
 label[for="menuBurger"] {
@@ -73,52 +93,155 @@ label[for="menuBurger"] {
   top: 0;
   left: 0;
   width: 100%;
-  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.08);
   z-index: 999;
 }
 
-.menu__inner { max-width: 1200px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; }
+.menu__inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 8px 16px;
+}
 
-.nav-links { display:flex; align-items:center; gap:8px; }
+.nav-links {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
 
-.nav-links ul { display:flex; gap:6px; list-style:none; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+.nav-links ul {
+  display: flex;
+  gap: 6px;
+  list-style: none;
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 
-.nav-links a { display:block; padding:10px 14px; color:#333; text-decoration:none; border-radius:6px; }
+.nav-links a {
+  display: block;
+  padding: 9px 12px;
+  color: var(--text, #333);
+  text-decoration: none;
+  border-radius: 6px;
+}
 
 /* scrollbar styling for horizontal nav */
-.nav-links ul::-webkit-scrollbar { height:6px; }
-.nav-links ul::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius:3px; }
+.nav-links ul::-webkit-scrollbar {
+  height: 6px;
+}
+
+.nav-links ul::-webkit-scrollbar-thumb {
+  background: rgba(0, 0, 0, 0.15);
+  border-radius: 3px;
+}
 
 /* Dropdown/submenu */
-.dropdown { position: relative; }
-.submenu { display:none; position:absolute; top: calc(100% + 6px); left:0; background:#fff; min-width:200px; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:2000; }
-.submenu li a { padding:10px 14px; color:#333; }
-.dropdown:hover > .submenu { display:block; }
+.dropdown {
+  position: relative;
+}
+
+.submenu {
+  display: none;
+  position: absolute;
+  top: calc(100% + 6px);
+  left: 0;
+  background: #fff;
+  min-width: 200px;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.08);
+  z-index: 2000;
+}
+
+.submenu li a {
+  padding: 10px 14px;
+  color: #333;
+}
+
+.dropdown:hover>.submenu {
+  display: block;
+}
 
 /* ===== Menu button bars ===== */
-.menu-btn { position: relative; width: 30px; height: 30px; display:flex; justify-content:center; align-items:center; }
-.menu-btn__bar { background: #222; height:2px; width:100%; position:absolute; border-radius:2px; left:0; z-index:10; transition: all .2s ease-in-out; }
-.menu-btn__bar--top { bottom:8px; }
-.menu-btn__bar--bottom { top:8px; }
-.menu-btn__bar--light { background: #fff; }
+.menu-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn__bar {
+  background: var(--text, #222);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  border-radius: 2px;
+  left: 0;
+  z-index: 10;
+  transition: all .2s ease-in-out;
+}
+
+.menu-btn__bar--top {
+  bottom: 8px;
+}
+
+.menu-btn__bar--bottom {
+  top: 8px;
+}
+
+.menu-btn__bar--light {
+  background: #fff;
+}
 
 /* Expanded state: target child bars */
-.menu-btn[aria-expanded="true"] .menu-btn__bar--top { transform-origin: 14px -2px; transform: rotate(-135deg); background: #fff; }
-.menu-btn[aria-expanded="true"] .menu-btn__bar--bottom { transform-origin: 22px 4px; transform: rotate(-45deg); background: #fff; }
+.menu-btn[aria-expanded="true"] .menu-btn__bar--top {
+  transform-origin: 14px -2px;
+  transform: rotate(-135deg);
+  background: #fff;
+}
+
+.menu-btn[aria-expanded="true"] .menu-btn__bar--bottom {
+  transform-origin: 22px 4px;
+  transform: rotate(-45deg);
+  background: #fff;
+}
 
 /* ===== Responsive tweaks ===== */
 @media (max-width: 900px) {
+
   /* If using top nav, hide full list and allow burger to open side menu */
-  .nav-links ul { display: none; }
-  label[for="menuBurger"] { display: block; }
+  .nav-links ul {
+    display: none;
+  }
+
+  label[for="menuBurger"] {
+    display: block;
+  }
+
   /* In case side nav contains dropdowns, allow expansion via .open class on .dropdown */
-  .submenu { position: static; box-shadow: none; display: none; }
-  .dropdown.open > .submenu { display: block; }
+  .submenu {
+    position: static;
+    box-shadow: none;
+    display: none;
+  }
+
+  .dropdown.open>.submenu {
+    display: block;
+  }
 }
 
 /* Small accessibility and utility */
-a:focus { outline: 3px solid rgba(0,123,255,0.12); outline-offset:2px; }
+a:focus {
+  outline: 3px solid rgba(0, 123, 255, 0.12);
+  outline-offset: 2px;
+}
 
 /* Footer icons size utility (kept from previous file) */
-.icones_footer { width: 24px; height: 24px; margin: 0 8px; }
-
+.icones_footer {
+  width: 24px;
+  height: 24px;
+  margin: 0 8px;
+}

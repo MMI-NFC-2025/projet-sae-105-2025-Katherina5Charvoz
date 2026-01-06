@@ -1,4 +1,5 @@
 /* src/css */
+@import "menu.css";
 @import "accueil.css";
 @import "apropos.css";
 @import "articles.css";
@@ -7,3 +8,4 @@
 /* layout */
 @import "layout/header.css";
 @import "layout/footer.css";
+@import "layout/menu.css";
