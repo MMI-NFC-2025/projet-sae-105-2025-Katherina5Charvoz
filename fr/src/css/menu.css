@@ -1,194 +1,124 @@
-input#menuBurger {
-    display:none;
-}
-.content {
-  transition: margin-right .3s ease;
-}
-.contenu p {
-  padding: 10px;
-}
+/* Consolidated menu stylesheet
+   - Fixed syntax errors from previous file
+   - Side menu: slides in from right, vertical scrolling when content overflows
+   - Top nav (optional): horizontal scroll on small screens
+   - Menu button: accessible expanded state
+*/
+
+/* Basic reset */
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+body { font-family: Arial, Helvetica, sans-serif; background-color: #f4f4f4; }
+
+/* ===== Checkbox burger (if using input#menuBurger + label) ===== */
+input#menuBurger { display: none; }
+
+/* Content area that may shift when side menu opens */
+.content { transition: margin-right .3s ease; }
+
+/* ===== Side menu (nav#navMenu) ===== */
 nav#navMenu {
-   height: 0px;
-   opacity: 0px;
-}
-nav#navMenu ul {
-    list-style-type: none;
-    padding: 0;
-  }
-  nav#navMenu ul li {
-    text-transform: uppercase;
-    background: hsl(102,100%,36%);
-    border-bottom: 1px solid hsla(0,0% saturation, 0% lightness, .1 alpha);
-    color: white;
-    text-decoration: none;
-    display: flex;
-    justify-content: center;
-    --menu-padding: 1rem;
-    border-bottom: 1px solid #ccc;
-  }
-  label[for="menuBurger"] {
-    position: fixed;
-    top: 1rem;
-    right: 1rem;
-    width: 2rem;
-    height: 2rem;
-    cursor: pointer;
-    z-index: 1001;
-  }
-  input#menuBurger:checked ~ .content {
-    margin-right: 250px;
-  }
-  input#menuBurger:checked ~ nav#navMenu {
-    height: auto;
-    opacity: 1;
-  }
-
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
-body {
-    font-family: Arial;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
-}
-
-.slider{
-    width: 100%;
-    height: 400px;
-    overflow: hidden;
-    position: relative;
-}
-ul {
-    list-style-type: none;
-}
-.menu {
-    font-family: 'Arial', sans-serif;
-}
-.section__header {
-    font-family: 'Arial', sans-serif;
-}
-.section__footer {
-    font-family: 'Arial', sans-serif;
-}
-.icones_footer {
-    width: 24px;
-    height: 24px;
-    margin: 0 8px;
-}
-.menu {
-    background-color: #ffffff;
-    position: fixed;
-    top: 0;
-    right: 0;
-    width: 250px;
-    height: 100%;
-    box-shadow: -2px 0 5px rgba(0, 0, 0, 0.3);
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    z-index: 1000;
-}
-.menu ul {
-    list-style: none;
-    padding: 0;
-    margin: 0;
-    flex-grow: 1;
-}
-/* Reset basique */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
-/* Menu principal */
-.menu ul {
-  list-style: none;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 250px;
+  height: 100vh;
+  background: hsl(102 100% 36%);
+  color: #fff;
+  transform: translateX(100%);
+  opacity: 0;
+  transition: transform .25s ease, opacity .25s ease;
+  z-index: 1000;
   display: flex;
-  background: #333;
+  flex-direction: column;
 }
 
-.menu ul li {
-  position: relative;
+nav#navMenu ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  /* allow the list to scroll if it grows taller than the viewport */
+  overflow-y: auto;
+  -webkit-overflow-scrolling: touch;
 }
 
-.menu ul li a {
-  display: block;
-  padding: 15px 20px;
-  color: white;
-  text-decoration: none;
-}
-
-.menu ul li a:hover {
-  background: #555;
-}
-
-/* Sous-menu (caché par défaut) */
-.submenu {
-  display: none;
-  position: absolute;
-  top: 100%;
-  left: 0;
-  background: #444;
-  min-width: 160px;
-}
-
-/* Liens du sous-menu */
-.submenu li a {
-  padding: 12px 16px;
-}
-
-/* Affichage au survol */
-.dropdown:hover .submenu {
-  display: block;
-}
-
-/* Bouton menu burger */
-
-.menu-btn {
-  position: relative;
-  width: 30px;
-  height: 30px;
+nav#navMenu ul li {
+  text-transform: uppercase;
+  padding: 14px 16px;
+  border-bottom: 1px solid rgba(0,0,0,0.08);
   display: flex;
   justify-content: center;
   align-items: center;
 }
 
-.menu-btn__bar {
-  background: var(--dark);
-  height: 2px;
-  width: 100%;
-  position: absolute;
-  border-radius: 2px;
+/* Slide-in when checkbox is checked */
+input#menuBurger:checked ~ nav#navMenu { transform: translateX(0); opacity: 1; }
+input#menuBurger:checked ~ .content { margin-right: 250px; }
+
+/* Burger label/button position */
+label[for="menuBurger"] {
+  position: fixed;
+  top: 1rem;
+  right: 1rem;
+  width: 2rem;
+  height: 2rem;
+  cursor: pointer;
+  z-index: 1100;
+}
+
+/* ===== Top navigation (optional) ===== */
+.menu {
+  background-color: #ffffff;
+  position: fixed;
+  top: 0;
   left: 0;
-  z-index: 10;
-  transition: all 0.2s ease-in-out;
+  width: 100%;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.08);
+  z-index: 999;
 }
 
-.menu-btn__bar--top {
-  bottom: 8px;
-}
-.menu-btn__bar--bottom {
-  top: 8px;
-}
-.menu-btn__bar--light {
-  background: var(--light);
+.menu__inner { max-width: 1200px; margin: 0 auto; display:flex; align-items:center; justify-content:space-between; padding:10px 16px; }
+
+.nav-links { display:flex; align-items:center; gap:8px; }
+
+.nav-links ul { display:flex; gap:6px; list-style:none; overflow-x:auto; -webkit-overflow-scrolling:touch; }
+
+.nav-links a { display:block; padding:10px 14px; color:#333; text-decoration:none; border-radius:6px; }
+
+/* scrollbar styling for horizontal nav */
+.nav-links ul::-webkit-scrollbar { height:6px; }
+.nav-links ul::-webkit-scrollbar-thumb { background: rgba(0,0,0,0.15); border-radius:3px; }
+
+/* Dropdown/submenu */
+.dropdown { position: relative; }
+.submenu { display:none; position:absolute; top: calc(100% + 6px); left:0; background:#fff; min-width:200px; box-shadow:0 8px 20px rgba(0,0,0,0.08); z-index:2000; }
+.submenu li a { padding:10px 14px; color:#333; }
+.dropdown:hover > .submenu { display:block; }
+
+/* ===== Menu button bars ===== */
+.menu-btn { position: relative; width: 30px; height: 30px; display:flex; justify-content:center; align-items:center; }
+.menu-btn__bar { background: #222; height:2px; width:100%; position:absolute; border-radius:2px; left:0; z-index:10; transition: all .2s ease-in-out; }
+.menu-btn__bar--top { bottom:8px; }
+.menu-btn__bar--bottom { top:8px; }
+.menu-btn__bar--light { background: #fff; }
+
+/* Expanded state: target child bars */
+.menu-btn[aria-expanded="true"] .menu-btn__bar--top { transform-origin: 14px -2px; transform: rotate(-135deg); background: #fff; }
+.menu-btn[aria-expanded="true"] .menu-btn__bar--bottom { transform-origin: 22px 4px; transform: rotate(-45deg); background: #fff; }
+
+/* ===== Responsive tweaks ===== */
+@media (max-width: 900px) {
+  /* If using top nav, hide full list and allow burger to open side menu */
+  .nav-links ul { display: none; }
+  label[for="menuBurger"] { display: block; }
+  /* In case side nav contains dropdowns, allow expansion via .open class on .dropdown */
+  .submenu { position: static; box-shadow: none; display: none; }
+  .dropdown.open > .submenu { display: block; }
 }
 
-.menu-btn[aria-expanded="true"] {
-  .menu-btn__bar--top {
-    transform-origin: 14px -2px;
-    transform: rotate(-135deg);
-    background: var(--light);
-  }
-  .menu-btn__bar--bottom {
-    transform-origin: 22px 4px;
-    transform: rotate(-45deg);
-    background: var(--light);
-  }
-}
+/* Small accessibility and utility */
+a:focus { outline: 3px solid rgba(0,123,255,0.12); outline-offset:2px; }
+
+/* Footer icons size utility (kept from previous file) */
+.icones_footer { width: 24px; height: 24px; margin: 0 8px; }
 
