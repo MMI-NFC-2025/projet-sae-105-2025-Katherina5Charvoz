@@ -19,11 +19,11 @@ nav#navMenu ul {
     text-transform: uppercase;
     background: hsl(102,100%,36%);
     border-bottom: 1px solid hsla(0,0% saturation, 0% lightness, .1 alpha);
-    color: white
+    color: white;
     text-decoration: none;
     display: flex;
     justify-content: center;
-    padding: 1rem;
+    --menu-padding: 1rem;
     border-bottom: 1px solid #ccc;
   }
 * {
