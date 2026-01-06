@@ -26,6 +26,23 @@ nav#navMenu ul {
     --menu-padding: 1rem;
     border-bottom: 1px solid #ccc;
   }
+  label[for="menuBurger"] {
+    position: fixed;
+    top: 1rem;
+    right: 1rem;
+    width: 2rem;
+    height: 2rem;
+    cursor: pointer;
+    z-index: 1001;
+  }
+  input#menuBurger:checked ~ .content {
+    margin-right: 250px;
+  }
+  input#menuBurger:checked ~ nav#navMenu {
+    height: auto;
+    opacity: 1;
+  }
+  
 * {
     box-sizing: border-box;
     margin: 0;
