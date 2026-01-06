@@ -42,7 +42,7 @@ nav#navMenu ul {
     height: auto;
     opacity: 1;
   }
-  
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -146,3 +146,49 @@ ul {
 .dropdown:hover .submenu {
   display: block;
 }
+
+/* Bouton menu burger */
+
+.menu-btn {
+  position: relative;
+  width: 30px;
+  height: 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.menu-btn__bar {
+  background: var(--dark);
+  height: 2px;
+  width: 100%;
+  position: absolute;
+  border-radius: 2px;
+  left: 0;
+  z-index: 10;
+  transition: all 0.2s ease-in-out;
+}
+
+.menu-btn__bar--top {
+  bottom: 8px;
+}
+.menu-btn__bar--bottom {
+  top: 8px;
+}
+.menu-btn__bar--light {
+  background: var(--light);
+}
+
+.menu-btn[aria-expanded="true"] {
+  .menu-btn__bar--top {
+    transform-origin: 14px -2px;
+    transform: rotate(-135deg);
+    background: var(--light);
+  }
+  .menu-btn__bar--bottom {
+    transform-origin: 22px 4px;
+    transform: rotate(-45deg);
+    background: var(--light);
+  }
+}
+
