@@ -1,7 +1,31 @@
 input#menuBurger {
     display:none;
 }
-
+.content {
+  transition: margin-right .3s ease;
+}
+.contenu p {
+  padding: 10px;
+}
+nav#navMenu {
+   height: 0px;
+   opacity: 0px;
+}
+nav#navMenu ul {
+    list-style-type: none;
+    padding: 0;
+  }
+  nav#navMenu ul li {
+    text-transform: uppercase;
+    background: hsl(102,100%,36%);
+    border-bottom: 1px solid hsla(0,0% saturation, 0% lightness, .1 alpha);
+    color: white
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    padding: 1rem;
+    border-bottom: 1px solid #ccc;
+  }
 * {
     box-sizing: border-box;
     margin: 0;
