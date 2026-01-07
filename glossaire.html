@@ -1,54 +1,74 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="fr/src/css/style.css">
 </head>
+
 <body>
-     <header>
-            <nav class="nav-bar">
-                </button>
-                <nav id="mainNav" class="menu">
-                    <button id="menuClose" class="menu-close" aria-label="Fermer le menu">✕</button>
-                    <ul class="nav-links">
-                        <li><a href="accueil.html">Accueil</a><img class="" src="assets/icones/Home.svg"
-                                alt=""></li>
-                        <li><a href="apropos.html">À propos</a><img class="" src="assets/icones/apropos.svg"
-                                alt=""></li>
-                        <li><a href="articles.html">Articles</a><img class="" src="assets/icones/Articles.svg"
-                                alt=""></li>
-                        <li><a href="glossaire.html">Glossaire</a><img class="" src="assets/icones/Glossaire.svg"
-                                alt=""></li>
-                    </ul>
-                </nav>
+    <header>
+        <div class="menu__inner">
+            <a href="accueil.html" class="menu__brand">L'effet Matilda</a>
+
+            <input type="checkbox" id="menuBurger" aria-hidden="true">
+            <label for="menuBurger" class="menu-btn" aria-label="Ouvrir le menu">
+                <span class="menu-btn__bar menu-btn__bar--top"></span>
+                <span class="menu-btn__bar"></span>
+                <span class="menu-btn__bar menu-btn__bar--bottom"></span>
+            </label>
+
+            <nav id="mainNav" class="menu" aria-label="Main navigation">
+                <ul class="nav-links">
+                    <li><a href="accueil.html">Accueil</a><img src="assets/icones/Home.svg" alt=""></li>
+                    <li class="dropdown"><a href="apropos.html">À propos ▾</a>
+                        <ul class="submenu">
+                            <li><a href="apropos.html">Notre histoire</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html">Articles</a><img src="assets/icones/Articles.svg" alt=""></li>
+                    <li><a href="glossaire.html">Glossaire</a><img src="assets/icones/Glossaire.svg" alt=""></li>
+                </ul>
             </nav>
+        </div>
     </header>
 
-<img class="" src="assets/img/Container.svg" alt="Container Glossaire">
-<h2 class="">L'effet Matilda</h2>
-<p class="">L’effet Matilda est une expression introduite par Margaret Rossiter, une historienne des sciences nord-américaine dans son essai de 1993 intitulé The Matthew Matilda effect in science. 
-C’est donc le fait que des hommes récupèrent tout le mérite des découvertes scientifiques sur le dos des femmes chercheuses qui ont réellement contribué à ces découvertes. Elles finissent oubliées, dans l’ombre de ces hommes.
-Injustement, elles ne reçoivent donc pas toute la reconnaissance méritée pour leurs œuvres. 
-</p>
-<h2 class="">Invisibilisation</h2>
-<p class="">Processus par lequel les contributions des femmes sont rendues invisibles, omises des publications, citations et récits historiques, comme si elles n’avaient jamais existé.</p>
-<h2 class="">Reconnaissance scientifique</h2>
-<p class="">Processus par lequel un chercheur ou une chercheuse est crédité(e) pour ses découvertes, incluant citations, prix, publications et reconnaissance institutionnelle.</p>
+    <img class="" src="assets/img/Container.svg" alt="Container Glossaire">
+    <h2 class="">L'effet Matilda</h2>
+    <p class="">L’effet Matilda est une expression introduite par Margaret Rossiter, une historienne des sciences
+        nord-américaine dans son essai de 1993 intitulé The Matthew Matilda effect in science. 
+        C’est donc le fait que des hommes récupèrent tout le mérite des découvertes scientifiques sur le dos des femmes
+        chercheuses qui ont réellement contribué à ces découvertes. Elles finissent oubliées, dans l’ombre de ces
+        hommes.
+        Injustement, elles ne reçoivent donc pas toute la reconnaissance méritée pour leurs œuvres. 
+    </p>
+    <h2 class="">Invisibilisation</h2>
+    <p class="">Processus par lequel les contributions des femmes sont rendues invisibles, omises des publications,
+        citations et récits historiques, comme si elles n’avaient jamais existé.</p>
+    <h2 class="">Reconnaissance scientifique</h2>
+    <p class="">Processus par lequel un chercheur ou une chercheuse est crédité(e) pour ses découvertes, incluant
+        citations, prix, publications et reconnaissance institutionnelle.</p>
 
-<footer>
-    <div class="footer-content">
-        <p>&copy; 2024 Effet Matilda. Tous droits réservés.</p>
-        <h3 class="">L'effet matilda</h3>
-        <p class="">MENTIONS LEGALES</p>
-        <a href="apropos.html" class="apropos-button"><p>A PROPOS</p></a>
-        <a href="contact.html" class="contact-button"> <p>CONTACT</p></a>
-        <img class="icones_footer" src="assets/icones_footer/partager.svg" alt="">
-        <img class="icones_footer" src="assets/icones_footer/mail_footer.svg" alt="">
-        <img class="icones_footer" src="assets/icones_footer/notifications.svg" alt="">
+    <footer>
+        <div class="footer-content">
+            <p>&copy; 2024 Effet Matilda. Tous droits réservés.</p>
+            <h3 class="">L'effet matilda</h3>
+            <p class="">MENTIONS LEGALES</p>
+            <a href="apropos.html" class="apropos-button">
+                <p>A PROPOS</p>
+            </a>
+            <a href="contact.html" class="contact-button">
+                <p>CONTACT</p>
+            </a>
+            <img class="icones_footer" src="assets/icones_footer/partager.svg" alt="">
+            <img class="icones_footer" src="assets/icones_footer/mail_footer.svg" alt="">
+            <img class="icones_footer" src="assets/icones_footer/notifications.svg" alt="">
 
-    </div>
-</footer>
+        </div>
+    </footer>
 </body>
+
 </html>

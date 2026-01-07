@@ -10,22 +10,30 @@
 
 <body>
     <header>
-        <nav class="nav-bar">
-            </button>
-            <nav id="mainNav" class="menu">
-                <button id="menuClose" class="menu-close" aria-label="Fermer le menu">✕</button>
+        <div class="menu__inner">
+            <a href="accueil.html" class="menu__brand">L'effet Matilda</a>
+
+            <input type="checkbox" id="menuBurger" aria-hidden="true">
+            <label for="menuBurger" class="menu-btn" aria-label="Ouvrir le menu">
+                <span class="menu-btn__bar menu-btn__bar--top"></span>
+                <span class="menu-btn__bar"></span>
+                <span class="menu-btn__bar menu-btn__bar--bottom"></span>
+            </label>
+
+            <nav id="mainNav" class="menu" aria-label="Main navigation">
                 <ul class="nav-links">
-                    <li><a href="accueil.html">Accueil</a><img class="" src="assets/icones/Home.svg" 
-                            alt=""></li>
-                    <li><a href="apropos.html">À propos</a><img class="" src="assets/icones/apropos.svg"
-                            alt=""></li>
-                    <li><a href="articles.html">Articles</a><img class="" src="assets/icones/Articles.svg"
-                            alt=""></li>
-                    <li><a href="glossaire.html">Glossaire</a><img class="" src="assets/icones/Glossaire.svg"
-                            alt=""></li>
+                    <li><a href="accueil.html">Accueil</a><img src="assets/icones/Home.svg" alt=""></li>
+                    <li class="dropdown"><a href="apropos.html">À propos ▾</a>
+                        <ul class="submenu">
+                            <li><a href="apropos.html">Notre histoire</a></li>
+                            <li><a href="contact.html">Contact</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="articles.html">Articles</a><img src="assets/icones/Articles.svg" alt=""></li>
+                    <li><a href="glossaire.html">Glossaire</a><img src="assets/icones/Glossaire.svg" alt=""></li>
                 </ul>
             </nav>
-        </nav>
+        </div>
     </header>
     <img class="hero-image" src="assets/img/Hero_accueil.png" alt="Hero Image">
     <h2 class="">Qu'est-ce que l'effet matilda?</h2>
@@ -47,37 +55,71 @@
     </p>
     <h2 class="">Articles à découvrir</h2>
     <div class="gallery-item">
-        <a target ="_blank" href="articles.html">
+        <a target="_blank" href="articles.html">
             <img src="assets/img/Mileva_Maric_removebg_preview 1.svg" alt="Article 1" class="gallery-image">
             <div class="gallery-text">La Deuxième Einstein</div>
             <a href="article1.html"></a>
     </div>
     <div class="gallery-item">
-        <a target ="_blank" href="articles.html">
+        <a target="_blank" href="articles.html">
             <img src="assets/img/couple_mileva_albert.svg" alt="Article 2" class="gallery-image">
             <div class="gallery-text">Rosalind Franklin</div>
             <a href="article2.html"></a>
     </div>
     <div class="gallery-item">
-        <a target ="_blank" href="articles.html">
+        <a target="_blank" href="articles.html">
             <img src="assets/img/théorie_relativité.svg" alt="Article 3" class="gallery-image">
             <div class="gallery-text">Lise Meitner</div>
             <a href="article3.html"></a>
 
-    <a href="apropos.html" class="btn-primary">En savoir plus</a>
-    <footer>
-        <div class="footer-content">
-            <p>&copy; 2024 Effet Matilda. Tous droits réservés.</p>
-            <h3 class="">L'effet matilda</h3>
-            <p class="">MENTIONS LEGALES</p>
-            <a href="apropos.html" class="apropos-button"><p>A PROPOS</p></a>
-            <a href="contact.html" class="contact-button"> <p>CONTACT</p></a> 
-            <img class="icones_footer" src="assets/icones_footer/partager.svg" alt="">
-            <img class="icones_footer" src="assets/icones_footer/mail_footer.svg" alt="">
-            <img class="icones_footer" src="assets/icones_footer/notifications.svg" alt="">
+            <a href="apropos.html" class="btn-primary">En savoir plus</a>
+            <footer>
+                <div class="footer-content">
+                    <p>&copy; 2024 Effet Matilda. Tous droits réservés.</p>
+                    <h3 class="">L'effet matilda</h3>
+                    <p class="">MENTIONS LEGALES</p>
+                    <a href="apropos.html" class="apropos-button">
+                        <p>A PROPOS</p>
+                    </a>
+                    <a href="contact.html" class="contact-button">
+                        <p>CONTACT</p>
+                    </a>
+                    <img class="icones_footer" src="assets/icones_footer/partager.svg" alt="">
+                    <img class="icones_footer" src="assets/icones_footer/mail_footer.svg" alt="">
+                    <img class="icones_footer" src="assets/icones_footer/notifications.svg" alt="">
 
-        </div>
-    </footer>
+                </div>
+            </footer>
+    <script>
+        (function () {
+            // Mobile dropdown toggles
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                drop.addEventListener('click', (e) => {
+                    // allow parent link navigation when not on small screens
+                    if (window.matchMedia('(max-width: 900px)').matches) {
+                        e.preventDefault();
+                        drop.classList.toggle('open');
+                    }
+                });
+            });
+
+            // Close side menu when clicking outside or pressing Escape
+            const burger = document.getElementById('menuBurger');
+            document.addEventListener('click', (e) => {
+                const nav = document.getElementById('mainNav');
+                if (!nav) return;
+                if (burger && burger.checked && !nav.contains(e.target) && !e.target.closest('label[for="menuBurger"]')) {
+                    burger.checked = false;
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (burger) burger.checked = false;
+                    document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
