@@ -40,44 +40,48 @@
             <p>&copy; 2024 Effet Matilda. Tous droits réservés.</p>
             <h3 class="">L'effet matilda</h3>
             <p class="">MENTIONS LEGALES</p>
-            <a href="apropos.html" class="apropos-button"><p>A PROPOS</p></a>
-            <a href="contact.html" class="contact-button"> <p>CONTACT</p></a>
+            <a href="apropos.html" class="apropos-button">
+                <p>A PROPOS</p>
+            </a>
+            <a href="contact.html" class="contact-button">
+                <p>CONTACT</p>
+            </a>
             <img class="icones_footer" src="assets/icones_footer/partager.svg" alt="">
             <img class="icones_footer" src="assets/icones_footer/mail_footer.svg" alt="">
             <img class="icones_footer" src="assets/icones_footer/notifications.svg" alt="">
 
         </div>
     </footer>
-        <script>
-            (function() {
-                // Mobile dropdown toggles
-                document.querySelectorAll('.dropdown').forEach(drop => {
-                    drop.addEventListener('click', (e) => {
-                        // allow parent link navigation when not on small screens
-                        if (window.matchMedia('(max-width: 900px)').matches) {
-                            e.preventDefault();
-                            drop.classList.toggle('open');
-                        }
-                    });
+    <script>
+        (function () {
+            // Mobile dropdown toggles
+            document.querySelectorAll('.dropdown').forEach(drop => {
+                drop.addEventListener('click', (e) => {
+                    // allow parent link navigation when not on small screens
+                    if (window.matchMedia('(max-width: 900px)').matches) {
+                        e.preventDefault();
+                        drop.classList.toggle('open');
+                    }
                 });
+            });
 
-                // Close side menu when clicking outside or pressing Escape
-                const burger = document.getElementById('menuBurger');
-                document.addEventListener('click', (e) => {
-                    const nav = document.getElementById('mainNav');
-                    if (!nav) return;
-                    if (burger && burger.checked && !nav.contains(e.target) && !e.target.closest('label[for="menuBurger"]')) {
-                        burger.checked = false;
-                    }
-                });
-                document.addEventListener('keydown', (e) => {
-                    if (e.key === 'Escape') {
-                        if (burger) burger.checked = false;
-                        document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
-                    }
-                });
-            })();
-        </script>
+            // Close side menu when clicking outside or pressing Escape
+            const burger = document.getElementById('menuBurger');
+            document.addEventListener('click', (e) => {
+                const nav = document.getElementById('mainNav');
+                if (!nav) return;
+                if (burger && burger.checked && !nav.contains(e.target) && !e.target.closest('label[for="menuBurger"]')) {
+                    burger.checked = false;
+                }
+            });
+            document.addEventListener('keydown', (e) => {
+                if (e.key === 'Escape') {
+                    if (burger) burger.checked = false;
+                    document.querySelectorAll('.dropdown.open').forEach(d => d.classList.remove('open'));
+                }
+            });
+        })();
+    </script>
 </body>
 
 </html>
