@@ -7,4 +7,5 @@
 @import "glossaire.css";
 /* layout */
 @import "layout/header.css";
+@import "layout/main.css";
 @import "layout/footer.css";
